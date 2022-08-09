@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Montserrat+Subrayada&family=Rampart+One&family=Russo+One&display=swap");
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#my-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+}
+
+.win-cell {
+  border: 1px solid rgba(115, 170, 172, 0.086);
+  height: 4vw;
+  width: 4vw;
+  margin-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  transition: background-color 0.5s ease-in-out, border-radius 0.1s ease-in-out;
+  animation-name: addBackground;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  text-align: center;
+  font-family: "Rampart One", cursive;
+}
+
+.reset-btn {
+  padding: 15px;
+  width: 150px;
+  font-size: 20px;
+  border: none;
+  background-color: rgba(248, 248, 248, 0.858);
+  color: rgb(11, 11, 11);
+  margin: 30px;
+  font-family: "Rampart One", cursive;
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(253, 252, 252, 0.708);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+body {
+  background-image: url("../img/levi9.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text-center {
+  text-align: center;
+}
+
+.header {
+  margin: 7vh auto 2vh auto;
+  font-family: "Rampart One", cursive;
+  color: white;
+}
+
+.footer {
+  margin: 2vh auto;
+}
+
+.footer img {
+  max-width: 5vw;
+}
+.footer {
+  background-color: transparent;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.463);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.main,
+.header,
+.footer {
+  width: 60vw;
+}
+
+.main {
+  display: flex;
+  height: auto;
+  margin: 0 auto;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.716);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+}
+
+.wrapp-rows {
+  margin-top: 90px;
+}
+
+.row {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-around;
+}
+
+.question-mark-row {
+  display: flex;
+  flex-basis: 100%;
+
+  margin-bottom: 0px;
+}
+.wrapp {
+  margin-bottom: 90px;
+}
+
+.row:not(.color-legend-row):first-child {
+  padding-top: 5vh;
+}
+
+.row:last-child {
+  margin-bottom: 5vh;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  border: 1px solid rgba(115, 170, 172, 0.086);
+  height: 4vw;
+  width: 4vw;
+  margin-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  transition: background-color 0.5s ease-in-out, border-radius 0.1s ease-in-out;
+  animation-name: addBackground;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+}
+.cell:hover {
+  box-shadow: -5px 4px 30px 12px rgba(24, 109, 209, 0.75);
+  -webkit-box-shadow: -5px 4px 30px 12px rgba(24, 109, 209, 0.75);
+  -moz-box-shadow: -5px 4px 30px 12px rgba(24, 109, 209, 0.75);
+}
+
+.col-2 .row:first-child {
+  visibility: hidden;
+}
+
+.color-legend-row {
+  display: flex;
+}
+
+.color-cell {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid blue;
+  background-color: transparent;
+  margin-left: 22px;
+  margin-right: 22px;
+  margin-top: 16px;
+  -webkit-box-shadow: 10px -2px 42px -18px rgba(9, 29, 73, 0.75);
+  -moz-box-shadow: 10px -2px 42px -18px rgba(41, 41, 161, 0.75);
+  box-shadow: 10px -2px 42px -18px rgba(0, 66, 249, 0.75);
+}
+
+.legend-color-cell {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: transparent;
+  margin-top: 20px;
+}
+
+.legend-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.legend-col:not(:last-child) {
+  margin-left: 30px;
+}
+
+.legend-col:last-child {
+  margin-left: 30px;
+}
+
+.legend-paragraph {
+  font-size: 1em;
+  margin-block-end: 5px;
+  margin-block-start: 5px;
+}
+
+.red,
+.green {
+  margin-bottom: 5px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.col-1 .row:last-child {
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.row-0 .cell {
+  background-image: url("../img/question-mark.png");
+}
+
+.background-angular,
+.background-react,
+.background-javascript,
+.background-css {
+  cursor: pointer;
+}
+
+.background-angular {
+  background-image: url("../img/angular.png");
+}
+
+.background-css {
+  background-image: url("../img/css.png");
+}
+
+.background-javascript {
+  background-image: url("../img/javascript.png");
+}
+
+.background-react {
+  background-image: url("../img/react.png");
+}
+
+.disabled {
+  border-color: rgba(167, 162, 162, 0.678);
+}
+
+.focused {
+  box-shadow: inset 0 0 10px rgb(219, 219, 219);
+}
+
+.matching-green,
+.matching-red {
+  border-radius: 50%;
+}
+
+.matching-green {
+  background-color: green;
+}
+
+.matching-red {
+  background-color: red;
+}
+
+@keyframes addBackground {
+  0% {
+    transform: rotateZ(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    opacity: 1;
+  }
+}
+
+.legend {
+  margin: 20px;
+  flex-direction: row;
+}
+
+.check {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.check-btn {
+  padding: 10px;
+  width: 150px;
+  background-color: rgba(16, 39, 187, 0.996);
+  color: white;
+  border: 3px solid white;
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+}
+
+.hidden {
+  display: none;
+}
+.hovered {
+  background: #f4f4f4;
+  border-style: dashed;
+}
+.hold {
+  border: solid 5px #ccc;
+}
+.check-button {
+  box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.75);
+  background-color: rgb(20, 20, 99);
+  color: white;
+  font-weight: 800;
+  font-size: 30px;
+}

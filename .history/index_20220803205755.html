@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="node_modules/confetti-js/dist/index.min.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Mastermind</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h2 id="title">Welcome to Master Mind</h2>
+    </div>
+    <div class="main" id="main">
+      <div class="modal hidden">
+        <h1 class="modal-title">🎉 Correct combination ! 🎉</h1>
+        <canvas id="my-canvas"></canvas>
+        <div class="row">
+          <div class="win-cell"></div>
+          <div class="win-cell"></div>
+          <div class="win-cell"></div>
+          <div class="win-cell"></div>
+        </div>
+      </div>
+      <div class="overlay hidden"></div>
+
+      <div class="left">
+        <div class="row row-0 question-mark">
+          <div class="cell secret-combination"></div>
+          <div class="cell secret-combination"></div>
+          <div class="cell secret-combination"></div>
+          <div class="cell secret-combination"></div>
+        </div>
+        <div class="row guessing-row">
+          <div class="cell empty row-1-cell guessing-cell"></div>
+          <div class="cell empty row-1-cell guessing-cell"></div>
+          <div class="cell empty row-1-cell guessing-cell"></div>
+          <div class="cell empty row-1-cell guessing-cell"></div>
+        </div>
+        <div class="row guessing-row">
+          <div class="cell empty row-2-cell guessing-cell"></div>
+          <div class="cell empty row-2-cell guessing-cell"></div>
+          <div class="cell empty row-2-cell guessing-cell"></div>
+          <div class="cell empty row-2-cell guessing-cell"></div>
+        </div>
+        <div class="row guessing-row">
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+        </div>
+        <div class="row guessing-row">
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+        </div>
+        <div class="row guessing-row">
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+        </div>
+        <div class="row guessing-row">
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+          <div class="cell empty guessing-cell"></div>
+        </div>
+        <div class="row">
+          <div
+            draggable="true"
+            class="cell background-angular picker angular"
+          ></div>
+          <div
+            draggable="true"
+            class="cell background-react picker react"
+          ></div>
+          <div
+            draggable="true"
+            class="cell background-javascript picker javascript"
+          ></div>
+          <div draggable="true" class="cell background-css picker css"></div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="cell question-mark-row">
+          <button class="check-button">?</button>
+        </div>
+        <div class="cell question-mark-row">
+          <button class="check-button">?</button>
+        </div>
+        <div class="cell question-mark-row">
+          <button class="check-button">?</button>
+        </div>
+        <div class="cell question-mark-row">
+          <button class="check-button">?</button>
+        </div>
+        <div class="cell question-mark-row">
+          <button class="check-button">?</button>
+        </div>
+        <div class="cell question-mark-row">
+          <button class="check-button">?</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="row hide">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+        </div>
+        <div class="row color-row">
+          <div class="cell neumorphic neumorphic--pressed color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+        </div>
+        <div class="row color-row">
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+        </div>
+        <div class="row color-row">
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+        </div>
+        <div class="row color-row">
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+        </div>
+        <div class="row color-row">
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+        </div>
+        <div class="row color-row">
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+          <div class="cell color-cell"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <img src="./assets/img/levi9-logo-text.jpg" alt="Levi9" />
+    </div>
+    <script src="script3.js" type="text/javascript"></script>
+    <script src="node_modules/confetti-js/dist/index.min.js"></script>
+  </body>
+</html>
